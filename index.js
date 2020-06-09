@@ -63,6 +63,11 @@ class WebTorrent extends EventEmitter {
     }
     this.nodeIdBuffer = Buffer.from(this.nodeId, 'hex')
 
+    this.userAgent = null;
+    if (typeof opts.userAgent === 'string') {
+      this.userAgent = opts.userAgent
+    }
+
     this._debugId = this.peerId.toString('hex').substring(0, 7)
 
     this.destroyed = false
